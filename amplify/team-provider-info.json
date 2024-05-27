@@ -1,0 +1,36 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-testamplifyapi-dev-90108-authRole",
+      "UnauthRoleArn": "arn:aws:iam::055449869651:role/amplify-testamplifyapi-dev-90108-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::055449869651:role/amplify-testamplifyapi-dev-90108-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-testamplifyapi-dev-90108-deployment",
+      "UnauthRoleName": "amplify-testamplifyapi-dev-90108-unauthRole",
+      "StackName": "amplify-testamplifyapi-dev-90108",
+      "StackId": "arn:aws:cloudformation:us-east-1:055449869651:stack/amplify-testamplifyapi-dev-90108/74977d70-66f1-11ed-ae6f-0aa3ea89bd51",
+      "AmplifyAppId": "d17un6itwxe1e6",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-testamplifyapi-dev-90108-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "testamplifyapi362703db": {}
+      },
+      "storage": {
+        "testAmplify": {}
+      },
+      "api": {
+        "testamplifyapi": {},
+        "getCashfreeSessionId": {}
+      },
+      "function": {
+        "createOrder": {
+          "xclientid": "287967dc7c181d11b60114d158769782",
+          "xclientsecret": "a34847c3c890309cda3582ad3a0f842d3b09d742",
+          "deploymentBucketName": "amplify-testamplifyapi-dev-90108-deployment",
+          "s3Key": "amplify-builds/createOrder-544a74477570336f7759-build.zip"
+        }
+      }
+    }
+  }
+}

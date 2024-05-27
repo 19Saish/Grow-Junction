@@ -1,0 +1,51 @@
+.aside {
+  color: black;
+  position: relative;
+  flex-grow: 1;
+
+  width: 100%;
+  /* min-height: 80vh; */
+}
+.top {
+  position: absolute;
+  width: 106px;
+  height: 106px;
+  /* left: 230px; */
+  /* top: 31px; */
+  background: url('../../public/images/EllipseTop.png');
+}
+.lefttop {
+  position: absolute;
+  width: 191px;
+  height: 192px;
+
+  /* left: 39px; */
+  /* top: 177px; */
+
+  background: url('../../public/images/EllipseLeftTop.png');
+}
+.righttop {
+  position: absolute;
+  width: 116px;
+  height: 115px;
+  /* left: 458px; */
+  /* top: 108px; */
+  background: url('../../public/images/EllipseRightTop.png');
+}
+.leftbottom {
+  position: absolute;
+  width: 109px;
+  height: 108px;
+  /* left: 80px; */
+  /* top: 443px; */
+
+  background: url('../../public/images/EllipseLeftBottom.png');
+}
+.rightbottom {
+  position: absolute;
+  width: 314px;
+  height: 314px;
+  /* left: 254px; */
+  /* top: 253px; */
+  background: url('../../public/images/EllipseRightBottom.png');
+}

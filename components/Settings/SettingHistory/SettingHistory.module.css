@@ -1,0 +1,13 @@
+.bottom {
+    border-bottom: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.show-content {
+    display: inline-block;
+}
+
+.no-content {
+    display: none;
+}

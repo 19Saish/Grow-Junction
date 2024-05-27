@@ -1,0 +1,16 @@
+{
+  "resourceName": "testAmplify",
+  "policyUUID": "1df95df7",
+  "bucketName": "testamplifyapia8dcbc927f9c443b9c1dbfaa11180a7c",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

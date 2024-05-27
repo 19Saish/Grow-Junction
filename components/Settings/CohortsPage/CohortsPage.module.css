@@ -1,0 +1,26 @@
+.btn:hover {
+    background-color: #ffbf00;
+}
+
+.active {
+    background-color: #ffbf00;
+}
+
+.search{
+    background-color: #ffbf00;
+}
+
+.content {
+    display: none;
+}
+
+.show-content {
+    display: inline-block;
+}
+
+.upcoming{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 50%;
+    color: white;
+}

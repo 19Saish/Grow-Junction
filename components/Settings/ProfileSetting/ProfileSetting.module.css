@@ -1,0 +1,22 @@
+.btn {
+  background-color: #ffbf00;
+}
+
+.btn:hover {
+  background-color: #e7ae04;
+}
+
+.img-profile {
+  width: 156px;
+  height: 156px;
+}
+
+.camera {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 2;
+  right: -8px;
+  bottom: 14px;
+}

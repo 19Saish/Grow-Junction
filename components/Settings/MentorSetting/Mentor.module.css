@@ -1,0 +1,9 @@
+.btn {
+    background-color: #ffbf00;
+}
+
+@media(min-width: 700px) {
+    #revenue{
+        width: 50%;
+    }
+}

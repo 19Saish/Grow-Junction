@@ -1,0 +1,14 @@
+.active {
+    border-bottom: 1px;
+    border-style: solid;
+    border-bottom-color: black;
+}
+
+.content {
+    display: none;
+}
+
+.show-content {
+    display: inline-block;
+}
+

@@ -1,0 +1,18 @@
+export const color = {
+  lightGrey: '#B8B8B8',
+  blackVariant: '#1D1D1D',
+  btnColor: '#FFAE29',
+  borderColor: '989898',
+  textGrey: '#B8B8B8',
+  headerColor: '#F9F9F9',
+  divider: '#C7C7C7',
+  white: '#FFFFFF',
+  disableColor: '#EEEEEE',
+  blue: '#2714FF',
+  black: '#000000',
+  borderGrey: '#989898',
+  green: '#30B956',
+  lightGreen: '#EDFFF2',
+  lightRed: '#FFF6F6',
+  red: '#D71E1E',
+}

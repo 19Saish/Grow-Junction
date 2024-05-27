@@ -1,0 +1,672 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: public }
+} # FOR TESTING ONLY!
+type Todo
+  @model
+  @auth(
+    rules: [
+      { allow: owner, ownerField: "username" }
+      { allow: public, operations: [read] }
+    ]
+  ) {
+  id: ID!
+  name: String!
+  description: String
+}
+
+type DemoSkillsList
+  @model
+  @auth(rules: [{ allow: public, operations: [read, create] }]) {
+  id: ID!
+  username: String
+  value: String!
+}
+
+type DomainInterestedList
+  @model
+  @auth(rules: [{ allow: public, operations: [read, create] }]) {
+  id: ID!
+  username: String
+  value: String!
+}
+
+type SuggestedServiceList
+  @model
+  @auth(rules: [{ allow: public, operations: [read, create] }]) {
+  id: ID!
+  username: String
+  value: String!
+}
+
+type StudentRegister
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  about_yourself: AboutYourself
+  current_employee: String
+  linkedIn_url: String
+  degree: String
+  experience: String
+  recent_college: String
+  your_role: String
+  username: String
+  password: String
+  social: SocialUrl
+  contact_info: ContactInfo
+  education: Education
+  professional_info: Professionalinfo
+  profile_image: String
+  student_profile: String
+  whatsapp_number: String
+  active: Boolean @default(value: "true")
+  deleted: Boolean @default(value: "false")
+  interestedSkills: [String]
+}
+enum Package_Access_Type {
+  ONEONONE
+  WORKSHOP
+  COHORT
+  PACKAGE
+}
+enum BookingStatus {
+  Success
+  Failure
+  Initiated
+  Refund
+}
+enum Channel {
+  Web
+  Android
+  IOS
+}
+enum AccountType {
+  Savings
+  Current
+}
+type OneOnOne
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  sessionTitle: String
+  username: String
+  listedPrice: Float
+  finalPrice: Float
+  numberOfSessions: Int
+  sessionDuration: Int
+  sessionDurationIn: String
+  description: String
+  questions: [OneOnOneQuestions]
+}
+type OneOnOneQuestions {
+  id: String
+  text: String
+  type: String
+  required: Boolean
+}
+type TextQuery
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  title: String
+  username: String
+  description: String
+  responseTime: Int
+  responseTimeIn: String
+  listedPrice: Float
+  finalPrice: Float
+  questions: [TextQueryQuestions]
+}
+type TextQueryQuestions {
+  id: String
+  text: String
+  type: String
+  required: Boolean
+}
+type BankInformation {
+  account_holder: String
+  account_number: String
+  ifsc: String
+  vpa: String
+  accountType: AccountType
+}
+type KycDetails {
+  account_type: String
+  business_type: String
+  uidai: String
+  pan: String
+  passport_number: String
+  driving_license: String
+  voter_id: String
+  gst: String
+  cin: String
+}
+
+type Workshop
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  title: String
+  username: String
+  description: String
+  callDuration: Int
+  callDurationIn: String
+  listedPrice: Float
+  finalPrice: Float
+  workshopDate: String
+  workshopTime: String
+  workshopImage: String
+  hideService: Boolean
+  limitedParticipants: Boolean
+  audienceSize: Int
+  questions: [WorkshopQuestions]
+}
+type WorkshopQuestions {
+  id: String
+  text: String
+  type: String
+  required: Boolean
+}
+type Courses
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  courseTitle: String
+  username: String
+  description: String
+  numberOfSessions: Int
+  sessionDuration: Int
+  sessionDurationIn: String
+  listedPrice: Float
+  finalPrice: Float
+  courseDate: String
+  courseTime: String
+  hideService: Boolean
+  limitParticipants: Boolean
+  audienceSize: Int
+  courseImage: String
+  sessions: [CourseSessions]
+}
+type CourseSessions {
+  id: String
+  text: String
+  sessionDate: String
+  sessionTime: String
+}
+type Packages
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  packageTitle: String
+  username: String
+  description: String
+  listedPrice: Float
+  finalPrice: Float
+  packageImage: String
+  emailContent: String
+  uploadFile: String
+  hideService: Boolean
+  limitParticipants: Boolean
+  audienceSize: Int
+  packageServices: [PackageServices]
+}
+type PackageServices {
+  id: String
+  text: String
+  title: String
+  duration: String
+  price: Float
+}
+
+type MentorRegister
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  about_yourself: AboutYourself
+  username: String
+  password: String
+  social: SocialUrl
+  currency: String
+  time_zone: TimeZone
+  contact_info: ContactInfo
+  education: Education
+  professional_info: Professionalinfo
+  profile_image: String
+  student_profile: String
+  domain_id: [String]
+  whatsapp_number: String
+  active: Boolean
+  deleted: Boolean
+  url: String
+  bankDetails: BankInformation
+  kyc_details: KycDetails
+  revenueShare: [RevenueShare]
+  access: [Package_Access_Type]
+  mentor_service_id: [String]
+  growJunctionSelected: Boolean @default(value: "false")
+}
+type RevenueShare {
+  serviceType: Package_Access_Type
+  revenueShare: Float
+}
+type Professionalinfo {
+  occupation: String
+  organization: String
+  location: String
+  position: String
+  experience: Experience
+}
+type Education {
+  degree: String
+  college_university: String
+  course: String
+  graduation_year: Int
+}
+
+type Experience {
+  years: String
+  months: String
+}
+type AboutYourself {
+  grow_junction_url: String
+  first_name: String
+  last_name: String
+  short_description: String
+  about_yourself: String
+}
+type ContactInfo {
+  email: String
+  mobile: String
+  whatsapp: String
+}
+type SocialUrl {
+  linkedin_url: String
+  facebook_url: String
+  instagram_url: String
+  personal_web_url: String
+  other_url: String
+}
+
+type Schedule
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  availableSameTime: Boolean
+  daySchedules: DaySchedules
+  username: String
+  unavailableDates: [String]
+}
+type DaySchedules {
+  everyday: Everyday
+  Sunday: Sunday
+  Monday: Monday
+  Tuesday: Tuesday
+  Wednesday: Wednesday
+  Thursday: Thursday
+  Friday: Friday
+  Saturday: Saturday
+}
+type Everyday {
+  everyday: Boolean
+  time: [Time]
+}
+type Sunday {
+  Sunday: Boolean
+  time: [Time]
+}
+type Monday {
+  Monday: Boolean
+  time: [Time]
+}
+type Tuesday {
+  Tuesday: Boolean
+  time: [Time]
+}
+type Wednesday {
+  Wednesday: Boolean
+  time: [Time]
+}
+type Thursday {
+  Thursday: Boolean
+  time: [Time]
+}
+type Friday {
+  Friday: Boolean
+  time: [Time]
+}
+type Saturday {
+  Saturday: Boolean
+  time: [Time]
+}
+type Time {
+  startTime: String
+  endTime: String
+}
+type UserInfo
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  kyc_done: Boolean
+  register_type: String
+  username: String
+  email: String
+  name: String
+  profile_image: String
+}
+type Configurations
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  timezone: TimeZone
+  calender: String
+  username: String
+  personalMeetingLink: String
+  bookingPeriod: Int
+  bookingPeriodIn: String
+  noticePeriod: Int
+  noticePeriodIn: String
+}
+type Payment
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  accountType: String
+  accountHolderName: String
+  username: String
+  ifscCode: String
+  accountNumber: String
+}
+type StudentBooking
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  name: String
+  orderId: String
+  transactionId: String
+  channel: Channel
+  serviceId: String
+  amountMentor: Float
+  amountGrow: Float
+  emailId: String
+  callAbout: String
+  mobileNumber: String
+  receiveUpdate: Boolean
+  timeZone: TimeZone
+  bookingDate: String
+  timeSlot: String
+  status: BookingStatus
+  successText: String
+  failureText: String
+  serviceType: String
+  username: String
+}
+type TimeZone {
+  abbrev: String
+  altName: String
+  label: String
+  offset: Float
+  value: String
+}
+
+type MentorSetting
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  revenue: String
+  becameMentor: String
+  mentorBtnText: String
+  termsConditions: String
+}
+
+type PaymentSetting
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  keyId: String
+  keySecret: String
+  webhookSecret: String
+  webhookMode: String
+  GSTInput: String
+  taxDetails: String
+  visibleOnInvoices: String
+  placeOfSupplyCGST: String
+  createInvoices: String
+  invoiceNotes: String
+  prefix: String
+  nextNo: String
+  CheckoutInvoiceNote: String
+  country: String
+  currency: String
+  gateway: String
+  taxType: String
+  defaultTaxRate: String
+}
+
+type SecuritySetting
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  deviceLimit: String
+  maxDevices: String
+  twoFactorAuth: String
+  downloadsAllowed: String
+  maxDaysOffline: String
+}
+
+type EmailSetting
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  fromName: String
+  replyToEmail: String
+  supportEmail: String
+  contactForm: String
+  welcomeEmail: String
+  invoiceEmail: String
+  manuallyCreated: Boolean
+  websiteSignups: Boolean
+  forgotPassword: Boolean
+  affiliateWelcome: Boolean
+  learnerAffiliateWelcome: Boolean
+  liveClassStart: Boolean
+  cohortWelcome: Boolean
+  contentAvailability: Boolean
+  liveClassReminder: Boolean
+}
+
+type MiscellaneousAffiliate
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  verifyLearner: String
+  affiliateButton: String
+  affiliateLinking: String
+  verifyLearnerMobile: String
+  newRating: String
+  wishlistSupport: String
+  archiveCohorts: String
+  bookmarkCohort: String
+  accessCode: String
+  knowledgeBaseLinks: String
+  subadmins: String
+  passwordPolicy: String
+  redirectUsers: String
+  msgBeforeLogout: String
+  msgCheckout: String
+  toggleMsgAfterlogin: Boolean
+  toggleMsgBeforeLogout: Boolean
+}
+
+type MiscellaneousZoom
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  alwaysRec: String
+  waitingRoom: String
+  startParticipantsVideo: String
+  muteParticipants: String
+}
+
+type MiscellaneousSocial
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  socialLogin: String
+  loginWithFacebook: String
+}
+type ProfileSetting
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  profileName: String
+  profileEmail: String
+  billingName: String
+}
+
+type ServiceType
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  oneOnOne: Boolean
+  workshop: Boolean
+  cohorts: Boolean
+  package: Boolean
+}
+
+type MentorOrderType
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  recentJoinee: Boolean
+  mostActive: Boolean
+  mostPopular: Boolean
+  highlyRated: Boolean
+  trending: Boolean
+  growJunction: Boolean
+}
+
+type Testimonials
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  serviceType: String
+  serviceTitle: String
+  mentorName: String
+  studentName: String
+  testimonials: String
+  rating: String
+}
+
+type User
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  userName: String
+  email: String
+  mobile: String
+  role: String
+  state: String
+  language: String
+  collegeName: String
+  interestedDomain: String
+  linkedin: String
+  viewingAccess: Boolean
+  editAccess: Boolean
+  accessLearnersEdit: Boolean
+  accessLearnersTransactions: Boolean
+  accessToEnroll: Boolean
+  canChangeUi: Boolean
+  accessToEditLanguages: Boolean
+  canEditPostsPublic: Boolean
+  canEditPostsCohorts: Boolean
+  canEditPostsSpecificCohorts: Boolean
+  accessSMS: Boolean
+  canEditPromo: Boolean
+  canEditWallet: Boolean
+  canEditBlog: Boolean
+  viewBandwidthReports: Boolean
+  viewUsageReports: Boolean
+  viewLiveTestReports: Boolean
+  viewLiveClassReports: Boolean
+  viewMentors: Boolean
+  viewAffiliate: Boolean
+  viewEnquiries: Boolean
+  canUpdateCohorts: Boolean
+  canManageLiveClass: Boolean
+  canManageAssignments: Boolean
+  canManageLiveTests: Boolean
+  canManageQuizReviews: Boolean
+  canViewSales: Boolean
+  canViewWithoutSpecificCohort: Boolean
+  canViewWithSpecificCohort: Boolean
+  sendEmailToUser: Boolean
+  editMembership: Boolean
+  editAffiliate: Boolean
+  editMentors: Boolean
+}
+
+type AdminInformation
+  @model
+  @auth(
+    rules: [{ allow: public, operations: [read, update, create, delete] }]
+  ) {
+  username: String
+  email: String
+  mobile: String
+  role: String
+  state: String
+  language: String
+  collegeName: String
+  interestedDomain: String
+  linkedin: String
+  viewingAccess: Boolean
+  editAccess: Boolean
+  accessLearnersEdit: Boolean
+  accessLearnersTransactions: Boolean
+  accessToEnroll: Boolean
+  addPromoCodes: Boolean
+  addWalletSetting: Boolean
+  addBlogs: Boolean
+  viewBandwidth: Boolean
+  viewUsage: Boolean
+  viewLiveTests: Boolean
+  viewLiveClass: Boolean
+  viewMentors: Boolean
+  editMentors: Boolean
+  viewAffiliate: Boolean
+  editAffiliate: Boolean
+  editMembership: Boolean
+  canUpdateServices: Boolean
+  canManageLiveClass: Boolean
+  canManageAssignments: Boolean
+  canManageLiveTests: Boolean
+  canManageQuizReviews: Boolean
+  viewCompleteSales: Boolean
+  viewWithoutSpecificCohortSales: Boolean
+  viewWithSpecificCohortSales: Boolean
+}

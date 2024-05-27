@@ -1,0 +1,12 @@
+.img-profile {
+  width: 200px;
+  height: 150px;
+}
+
+.backdrop{
+left:0;
+top:0;
+bottom:0;
+right:0;
+background-color:rgba(0, 0, 255,0.15)
+}

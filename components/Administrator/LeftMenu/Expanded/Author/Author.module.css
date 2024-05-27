@@ -1,0 +1,16 @@
+.persona {
+  width: 88px;
+  height: 88px;
+  /* margin-right: 12px; */
+  border-radius: 44px;
+  margin-bottom: 10px;
+}
+.btn {
+  padding: 16px 20px;
+  vertical-align: middle;
+  /* width: 311px; */
+  /* height: 39px; */
+}
+.container {
+  background: #f8f8f8;
+}

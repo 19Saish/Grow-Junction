@@ -1,0 +1,14 @@
+.btn {
+  transition: all 0.5s;
+  max-width: 200px;
+}
+.close {
+  filter: invert(0.4);
+  transition: all 0.25s;
+}
+.close:hover {
+  filter: invert(0);
+}
+.text-area{
+  border-radius:10px
+}

@@ -1,0 +1,13 @@
+.img {
+  width: 60px;
+  height: 60px;
+  border-radius: 65px;
+}
+
+.persona {
+  width: 88px;
+  height: 88px;
+  /* margin-right: 12px; */
+  border-radius: 44px;
+  margin-bottom: 10px;
+}

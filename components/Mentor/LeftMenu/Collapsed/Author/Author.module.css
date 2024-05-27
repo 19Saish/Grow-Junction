@@ -1,0 +1,20 @@
+.persona {
+  width: 44px;
+  height: 44px;
+  /* margin-right: 12px; */
+  border-radius: 22px;
+}
+.other {
+  width: 22px;
+  height: 22px;
+}
+.btn {
+  padding: 16px 20px;
+  vertical-align: middle;
+  /* width: 311px; */
+  /* height: 39px; */
+}
+.container {
+  background: #f8f8f8;
+  border-color: #f8f8f8;
+}

@@ -1,0 +1,15 @@
+.container {
+  padding: 5%;
+  background-color: #fff;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.right {
+  display: flex;
+}
+.new {
+  background-color: #ffbf00;
+  color: white;
+}

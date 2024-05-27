@@ -1,0 +1,15 @@
+.join {
+  background-color: #ff0000;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ff0000;
+  color: white;
+}
+
+.completed {
+  background-color: #23b000;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #23b000;
+  color: white;
+}

@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 62.5%;
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../public/fonts/OpenSans-Regular.ttf');
+  src: url('../public/fonts/OpenSans-SemiBold.ttf');
+  src: url('../public/fonts/OpenSans-Bold.ttf');
+  src: url('../public/fonts/OpenSans-Medium.ttf');
+  src: url('../public/fonts/OpenSans-ExtraBold.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+#__next .rdt_TableHeadRow {
+  /* background-color: #e8c8dc;
+   */
+  font-weight: 600;
+  border-bottom: 1px solid black;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans';
+  letter-spacing: 0.1rem;
+}
+body {
+  font-size: 2rem;
+  font-family: 'Open Sans';
+}
+.active div {
+  background-color: #ffae29;
+  color: white;
+}
+div.active-header {
+  background-color: #e1c9a4;
+  color: rgb(112, 108, 108);
+}
+.active img {
+  filter: invert(100%);
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    font-size: 1.6rem;
+    color: white;
+    background: black;
+  }
+}
+input,
+select {
+  padding: 5px;
+}
+select option {
+  padding: 10px 5px;
+}
+textarea {
+  resize: none;
+  height: 8em;
+  /* width: 57rem; */
+}
+div.search-wrapper > span.chip {
+  display: none;
+}
+div.search-wrapper > input {
+  font-size: 11px;
+}
+.optionContainer li {
+  font-size: 11px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+.rmdp-input {
+  min-width: 250px;
+  text-align: center;
+  padding: 15px;
+}
+.hcgwbo {
+  min-width: 100px;
+  white-space: normal;
+}
